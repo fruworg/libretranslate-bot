@@ -1,2 +1,2 @@
-#libretranslate-bot
-ocr.space + libretranslate + go
+### libretranslate-bot
+ocr.space + libretranslate.de + go
