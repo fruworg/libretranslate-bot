@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-		// токен
+	// токен
 	bot, err := tgbotapi.NewBotAPI("telegramToken")
 	if err != nil {
 		log.Fatal(err)
@@ -24,7 +24,7 @@ func main() {
 
 	log.Printf("Authorized on account %s", bot.Self.UserName)
 	
-	adrheroku := ("https://libretranslate-bot.herokuapp.com:" + "PORT")
+	adrheroku := "https://libretranslate-bot.herokuapp.com:" + "PORT"
 	wh, _ := tgbotapi.NewWebhook(adrheroku)
 
 	_, err = bot.SetWebhook(wh)
