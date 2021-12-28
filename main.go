@@ -15,7 +15,7 @@ import (
 
 func main() {
 	// токен
-	bot, err := tgbotapi.NewBotAPI("telegramToken")
+	bot, err := tgbotapi.NewBotAPI(telegramToken)
 	if err != nil {
 		log.Print(err)
 	}
