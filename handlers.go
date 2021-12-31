@@ -15,6 +15,9 @@ import (
 	ocr "github.com/ranghetto/go_ocr_space"
 	)
 
+var WithMarkdown = func(msg *model.Message) {
+	msg.Markdown = true
+}
 var ocrtoken string
 
 func init(){
