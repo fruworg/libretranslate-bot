@@ -114,7 +114,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 		"source": source,
 		"target": target,
 		}
-
+		fmt.Println(text, source, target)
 		bytesRepresentation, err := json.Marshal(message)
 		if err != nil {
 			log.Println(err)
