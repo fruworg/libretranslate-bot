@@ -15,7 +15,7 @@ import (
 
 func main() {
 	// токен
-	bot, err := tgbotapi.NewBotAPI("MyAwesomeBotToken")
+	bot, err := tgbotapi.NewBotAPI("TELEGRAM_TOKEN")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -148,7 +148,7 @@ func main() {
 									}
 									if lgocr != "err" {
 										//токен + язык
-										config := ocr.InitConfig("ocrToken", lgocr)
+										config := ocr.InitConfig("OCR_TOKEN", lgocr)
 										//урл
 										result, err := config.ParseFromUrl(text)
 										if err != nil {
