@@ -24,7 +24,7 @@ func main() {
 
 	log.Printf("Authorized on account %s", bot.Self.UserName)
 
-	wh, _ := tgbotapi.NewWebhook("https://zxfruworg.herokuapp.com", ":"+os.Getenv("PORT")))
+	wh, _ := tgbotapi.NewWebhook("https://libretranslate-bot.herokuapp.com", ":"+os.Getenv("PORT")))
 
 	_, err = bot.SetWebhook(wh)
 	if err != nil {
