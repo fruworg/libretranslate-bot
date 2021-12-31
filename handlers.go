@@ -98,7 +98,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 			}
 			})}
 			fmt.Println("OCR ON SOOQA")
-			if msg == ""{
+			if msg == "" && ocryes[:len(ocryes)-4] == "http"{
 			//токен + язык
 			config := ocr.InitConfig(ocrtoken, languages[source])
 			//урл
