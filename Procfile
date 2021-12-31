@@ -1,1 +1,1 @@
-web: bin/libretranslate-bot
+web: bin/rochambeau
