@@ -75,6 +75,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 	if msg == "" && len(m.Text) > 12{
 		ocryes := text[:len(text)-(len(text)-8)]
 		if ocryes[:len(ocryes)-4] == "http" {
+			fmt.Println("OCR test")
 			res, err := http.Get("https://status.ocr.space/")
 			if err != nil {
 				log.Fatal(err)
@@ -96,6 +97,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 						}
 			}
 			})}
+			fmt.Println("OCR ON SOOQA")
 			if msg == ""{
 			//токен + язык
 			config := ocr.InitConfig(ocrtoken, languages[source])
