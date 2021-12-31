@@ -1,4 +1,4 @@
-module github.com/fruworg/zxfruworg
+module github.com/fruworg/libretranslate-bot
 
 go 1.17
 
