@@ -11,11 +11,12 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/yanzay/tbot/v2"
+	"github.com/yanzay/tbot/model"
 	"github.com/PuerkitoBio/goquery"
 	ocr "github.com/ranghetto/go_ocr_space"
 	)
 
-var WithMarkdown = func(msg *tbot.Message) {
+var WithMarkdown = func(msg *model.Message) {
 	msg.Markdown = true
 }
 var ocrtoken string
