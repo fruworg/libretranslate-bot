@@ -15,20 +15,33 @@ import (
 
 func main() {
 	// токен
-	bot, err := tgbotapi.NewBotAPI("telegramToken")
+	bot, err := tgbotapi.NewBotAPI("MyAwesomeBotToken")
 	if err != nil {
-		log.Print(err)
+		log.Fatal(err)
 	}
 
+	bot.Debug = true
+
 	log.Printf("Authorized on account %s", bot.Self.UserName)
-	// u - апдейты
-	u := tgbotapi.NewUpdate(0)
-	u.Timeout = 60
 
-	// новые сообщения
-	updates, err := bot.GetUpdatesChan(u)
+	wh, _ := tgbotapi.NewWebhook("https://zxfruworg.herokuapp.com", ":"+os.Getenv("PORT")))
 
-	// обрабатываем
+	_, err = bot.SetWebhook(wh)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	info, err := bot.GetWebhookInfo()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if info.LastErrorDate != 0 {
+		log.Printf("Telegram callback failed: %s", info.LastErrorMessage)
+	}
+
+	updates := bot.ListenForWebhook("/" + bot.Token)
+
 	for update := range updates {
 		if update.Message == nil {
 			continue
