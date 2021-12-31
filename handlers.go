@@ -11,14 +11,10 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/yanzay/tbot/v2"
-	"github.com/yanzay/tbot/model"
 	"github.com/PuerkitoBio/goquery"
 	ocr "github.com/ranghetto/go_ocr_space"
 	)
 
-var WithMarkdown = func(msg *model.Message) {
-	msg.Markdown = true
-}
 var ocrtoken string
 
 func init(){
@@ -37,7 +33,7 @@ func (a *application) startHandler(m *tbot.Message) {
 	       "*en* - Английский; *ar* - Арабский; *zh* - Китайский; \n*fr* - Французкий; *de* - Немецкий; *hi* - Индийский; " +
 	       "\n*id* - Индонезийский; *ga* - Ирландский; *it* - Итальянский; \n*ja* - Японский; *ko* - Корейский; " +
 	       "*pl* - Польский; *pt* - Португальский; \n*es* - Испанский; *tr* - Турецкий; *vi* - Вьетнамский."
-	a.client.SendMessage(m.Chat.ID, msg)
+	a.client.SendMessage(m.Chat.ID, msg, tbot.OptParseModeMarkdown)
 }
 
 // Handle the msg command here
