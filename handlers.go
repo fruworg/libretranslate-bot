@@ -131,5 +131,5 @@ func (a *application) msgHandler(m *tbot.Message) {
 		msg = strings.Trim(msg, "map[translatedText:")
 		msg = msg[:len(msg)-2]
 		}		
-	a.client.SendMessage(m.Chat.ID, msg)
+	a.client.SendMessage(m.Chat.ID, msg, tbot.OptParseModeMarkdown)
 	}
