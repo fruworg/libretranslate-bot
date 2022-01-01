@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"strings"
 	"os"
+	"unicode/utf8"
 
 	"github.com/joho/godotenv"
 	"github.com/yanzay/tbot/v2"
