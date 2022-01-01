@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"strings"
 	"os"
-	"unicode/utf8"
 
 	"github.com/joho/godotenv"
 	"github.com/yanzay/tbot/v2"
@@ -28,8 +27,8 @@ func init(){
 
 // Handle the /start command here
 func (a *application) startHandler(m *tbot.Message) {
-	msg := "\n*Привет!* Присылай сообщение и я его переведу.\n\nДля обычного текста:\n*en* *ru* Hello, World!" +
-	       "\nДля текста на фотографии:\n*en* *ru* https://website.com/file\n\nГде *en* - это язык текста, " +
+	msg := "\n*Привет!* Присылай сообщение и я его переведу.\n\nДля обычного текста:\n*en**ru*Hello, World!" +
+	       "\nДля текста на фотографии:\n*en**ru*https://website.com/file\n\nГде *en* - это язык текста, " +
 	       "а *ru* - язык перевода.\nДля *OCR* без перевода используй одинаковые языки.\n\nКоды языков:\n*ru* - Русский; " +
 	       "*en* - Английский; *ar* - Арабский; *zh* - Китайский; \n*fr* - Французкий; *de* - Немецкий; *hi* - Индийский; " +
 	       "\n*id* - Индонезийский; *ga* - Ирландский; *it* - Итальянский; \n*ja* - Японский; *ko* - Корейский; " +
@@ -61,11 +60,11 @@ func (a *application) msgHandler(m *tbot.Message) {
 		"es": "Распознование испанского не поддерживается.",
 		"vi": "Распознование вьетнамского не поддерживается.",
 	}
-	if utf8.RuneCountInString(m.Text) > 6{
-		arr := strings.Split(m.Text, " ")
-		source = arr[0]
-		target = arr[1]
-		text = strings.TrimLeft(m.Text, arr[0] + " " + arr[1])
+	if len(m.Text) > 4{
+		source = m.Text[:len(m.Text)-(len(m.Text)-2)]
+		target = m.Text[:len(m.Text)-(len(m.Text)-4)]
+		target = target[len(target)-2:]
+		text = m.Text[len(m.Text)-(len(m.Text)-4):]
 		if languages[source] == ""{
 			msg = "Неправильный код языка текста!\nПосмотри коды командой */start*."
 		} else if languages[target] == ""{
@@ -73,8 +72,9 @@ func (a *application) msgHandler(m *tbot.Message) {
 		}
 	}else{
 		msg = "Слишком короткое сообщение!\nПосмотри на пример командой */start*."}
-	if msg == "" && utf8.RuneCountInString(m.Text) > 15{
-		if text[:len(text)-(len(text)-4)] == "http" {
+	if msg == "" && len(m.Text) > 12{
+		ocryes := text[:len(text)-(len(text)-8)]
+		if ocryes[:len(ocryes)-4] == "http" {
 			res, err := http.Get("https://status.ocr.space/")
 			if err != nil {
 				log.Fatal(err)
@@ -96,7 +96,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 						}
 			}
 			})}
-			if msg == "" && text[:len(text)-(len(text)-4)] == "http"{
+			if msg == "" && ocryes[:len(ocryes)-4] == "http"{
 			//токен + язык
 			config := ocr.InitConfig(ocrtoken, languages[source])
 			//урл
