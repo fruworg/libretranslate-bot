@@ -65,7 +65,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 		arr := strings.Split(m.Text, " ")
 		source = arr[0]
 		target = arr[1]
-		text = strings.TrimLeft(m.Text, arr[0]+arr[1])
+		text = strings.TrimLeft(m.Text, arr[0] + " " + arr[1])
 		if languages[source] == ""{
 			msg = "Неправильный код языка текста!\nПосмотри коды командой */start*."
 		} else if languages[target] == ""{
