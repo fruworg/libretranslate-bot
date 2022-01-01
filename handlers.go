@@ -60,11 +60,11 @@ func (a *application) msgHandler(m *tbot.Message) {
 		"es": "Распознование испанского не поддерживается.",
 		"vi": "Распознование вьетнамского не поддерживается.",
 	}
-	if len(m.Text) > 4{
-		source = m.Text[:len(m.Text)-(len(m.Text)-2)]
-		target = m.Text[:len(m.Text)-(len(m.Text)-4)]
-		target = target[len(target)-2:]
-		text = m.Text[len(m.Text)-(len(m.Text)-4):]
+	if utf8.RuneCountInString(m.Text) > 6{
+		arr := strings.Split(m.Text, " ")
+		source = arr[0]
+		target = arr[1]
+		text = strings.TrimLeft(m.Text, "map[translatedText:")
 		if languages[source] == ""{
 			msg = "Неправильный код языка текста!\nПосмотри коды командой */start*."
 		} else if languages[target] == ""{
@@ -72,9 +72,8 @@ func (a *application) msgHandler(m *tbot.Message) {
 		}
 	}else{
 		msg = "Слишком короткое сообщение!\nПосмотри на пример командой */start*."}
-	if msg == "" && len(m.Text) > 12{
-		ocryes := text[:len(text)-(len(text)-8)]
-		if ocryes[:len(ocryes)-4] == "http" {
+	if msg == "" && utf8.RuneCountInString(m.Text) > 15{
+		if text[:len(text)-(len(text)-4)] == "http" {
 			res, err := http.Get("https://status.ocr.space/")
 			if err != nil {
 				log.Fatal(err)
@@ -96,7 +95,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 						}
 			}
 			})}
-			if msg == "" && ocryes[:len(ocryes)-4] == "http"{
+			if msg == "" && text[:len(text)-(len(text)-4)] == "http"{
 			//токен + язык
 			config := ocr.InitConfig(ocrtoken, languages[source])
 			//урл
