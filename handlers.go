@@ -127,8 +127,8 @@ func (a *application) msgHandler(m *tbot.Message) {
 		var result map[string]interface{}
 		json.NewDecoder(resp.Body).Decode(&result)
 		msg = fmt.Sprintln(result)
-		msg = strings.TrimLeft(msg, "map[translatedText:")
-		//msg = msg[:len(msg)-2]
+		msg = strings.TrimPrefix(msg, "map[translatedText:")
+		msg = msg[:len(msg)-2]
 		}		
 	a.client.SendMessage(m.Chat.ID, msg, tbot.OptParseModeMarkdown)
 	}
