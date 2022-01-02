@@ -38,6 +38,7 @@ func (a *application) startHandler(m *tbot.Message) {
 
 // Handle the msg command here
 func (a *application) msgHandler(m *tbot.Message) {
+	a.client.SendChatAction(m.Chat.ID, tbot.ActionTyping)
 	msg := ""
 	source := ""
 	target := ""
