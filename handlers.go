@@ -61,9 +61,9 @@ func (a *application) msgHandler(m *tbot.Message) {
 		"vi": "Распознование вьетнамского не поддерживается.",
 	}
 	if len(m.Text) > 4{
-		source = m.Text[:len(m.Text)-(len(m.Text)-2)]
+		source = strings.ToLower(m.Text[:len(m.Text)-(len(m.Text)-2)])
 		target = m.Text[:len(m.Text)-(len(m.Text)-4)]
-		target = target[len(target)-2:]
+		target = strings.ToLower(target[len(target)-2:])
 		text = m.Text[len(m.Text)-(len(m.Text)-4):]
 		if languages[source] == ""{
 			msg = "Неправильный код языка текста!\nПосмотри коды командой */start*."
@@ -73,7 +73,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 	}else{
 		msg = "Слишком короткое сообщение!\nПосмотри на пример командой */start*."}
 	if msg == "" && len(m.Text) > 12{
-		ocryes := text[:len(text)-(len(text)-8)]
+		ocryes := strings.ToLower(text[:len(text)-(len(text)-8)])
 		if ocryes[:len(ocryes)-4] == "http" {
 			res, err := http.Get("https://status.ocr.space/")
 			if err != nil {
