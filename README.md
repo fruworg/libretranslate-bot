@@ -21,8 +21,10 @@
 ### Перевод с OCR
 ```
                                                                                       user:
-                                                                          enruHello, World!
+                                                        enzhhttps://i.ibb.co/6b9C315/23.jpg
                                                                           
      bot:
-     Привет, мир!
+     内罗毕
+     附录
+     东南非
 ```
