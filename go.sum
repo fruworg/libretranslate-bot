@@ -21,3 +21,5 @@ github.com/ranghetto/go_ocr_space v0.0.0-20190617120011-980751a8a409 h1:8oI32HLF
 github.com/ranghetto/go_ocr_space v0.0.0-20190617120011-980751a8a409/go.mod h1:JRk14mjJf4qaBzi+SjeUGYagU672VwaBh0z/1rLFRA4=
 github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible h1:2cauKuaELYAEARXRkq2LrJ0yDDv1rW7+wrTEdVL3uaU=
 github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible/go.mod h1:qf9acutJ8cwBUhm1bqgz6Bei9/C/c93FPDljKWwsOgM=
+github.com/andybalholm/cascadia v1.3.1 h1:nhxRkql1kdYCc8Snf7D5/D3spOX+dBgjA6u8x004T2c=
+github.com/andybalholm/cascadia v1.3.1/go.mod h1:R4bJ1UQfqADjvDa4P6HZHLh/3OxWWEqc0Sk8XGwHqvA=
