@@ -9,21 +9,10 @@ import (
 	"strings"
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/yanzay/tbot/v2"
 	"github.com/PuerkitoBio/goquery"
 	ocr "github.com/ranghetto/go_ocr_space"
 	)
-
-var ocrtoken string
-
-func init(){
-	e := godotenv.Load()
-	if e != nil {
-		log.Println(e)
-	}
-	ocrtoken = os.Getenv("OCR_TOKEN")
-}
 
 // Handle the /start command here
 func (a *application) startHandler(m *tbot.Message) {
@@ -99,7 +88,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 			})}
 			if msg == "" && ocryes[:len(ocryes)-4] == "http"{
 			//токен + язык
-			config := ocr.InitConfig(ocrtoken, languages[source])
+			config := ocr.InitConfig(os.Getenv("OCR_TOKEN"), languages[source])
 			//урл
 			result, err := config.ParseFromUrl(text)
 			if err != nil {
