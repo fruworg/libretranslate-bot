@@ -10,7 +10,15 @@
 Бот-переводчик в телеграме. В арсенале 17 языков.<br />
 Поддерживает распознование текста с изображения по URL.<br />
 Сделано с помощью: [ocr.space](https://ocr.space) + [libretranslate.de](https://libretranslate.de) + [tbot](https://github.com/yanzay/tbot).
-### Обычный текст
+### Обычный перевод
+```
+                                                                                      user:
+                                                                          enruHello, World!
+                                                                          
+     bot:
+     Привет, мир!
+```
+### Перевод с OCR
 ```
                                                                                       user:
                                                                           enruHello, World!
