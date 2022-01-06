@@ -1,3 +1,4 @@
+### [t.me/libretranslatebot](https://t.me/libretranslatebot)
 ```
      .__  ._____.                  __                              .__          __          
      |  | |__\_ |_________   _____/  |_____________    ____   _____|  | _____ _/  |_  ____ 
@@ -6,5 +7,6 @@
      |____/__||___  /__|    \___  >__|  |__|  (____  /___|  /____  >____(____  /__|  \___  >
                   \/            \/                 \/     \/     \/          \/          \/        
 ``` 
-### [t.me/libretranslatebot](https://t.me/libretranslatebot)
-[ocr.space](https://ocr.space) + [libretranslate.de](https://libretranslate.de) + [tbot](https://github.com/yanzay/tbot) <br />
+Бот-переводчик в телеграме. В арсенале 17 языков.
+Есть поддержка OCR по URL изображения.
+Сделано с помощью: [ocr.space](https://ocr.space) + [libretranslate.de](https://libretranslate.de) + [tbot](https://github.com/yanzay/tbot)
