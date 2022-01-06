@@ -9,4 +9,4 @@
 ``` 
 Бот-переводчик в телеграме. В арсенале 17 языков.<br />
 Есть поддержка OCR по URL изображения.<br />
-Сделано с помощью: [ocr.space](https://ocr.space) + [libretranslate.de](https://libretranslate.de) + [tbot](https://github.com/yanzay/tbot)
+Сделано с помощью: [ocr.space](https://ocr.space) + [libretranslate.de](https://libretranslate.de) + [tbot](https://github.com/yanzay/tbot).
