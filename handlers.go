@@ -109,7 +109,7 @@ func (a *application) msgHandler(m *tbot.Message) {
 			log.Println(err)
 		}
 
-		resp, err := http.Post("https://translate.argosopentech.com/", "application/json",
+		resp, err := http.Post("https://trans.zillyhuhn.com/translate", "application/json",
 			bytes.NewBuffer(bytesRepresentation))
 		if err != nil {
 			log.Println(err)
